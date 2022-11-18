@@ -1,0 +1,139 @@
+Basic Data Structure
+
+List --  (list 1 2 3 4)
+
+(list 1 2 3 4)
+=> (1 2 3 4)
+'(1 2 3 4)
+=> (1 2 3 4)
+(1 2 3 4)
+Execution error (ClassCastException) at user/eval2431 (form-init17088452948683706140.clj:1).
+class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+(concat '(1 2 3) '(4 5 6))
+=> (1 2 3 4 5 6)
+(first '(1 2 3))
+=> 1
+(second '(1 2 3))
+=> 2
+(third '(1 2 3))
+Syntax error compiling at (form-init17088452948683706140.clj:1:1).
+Unable to resolve symbol: third in this context
+(rest '(1 2 3 4 5))
+=> (2 3 4 5)
+(drop 3 '(1 2 3 4 5 6 7))
+=> (4 5 6 7)
+(drop-while odd? '(1 3 4 5 7 8 9))
+=> (4 5 7 8 9)
+(first nil)
+=> nil
+(rest nil)
+=> ()
+(drop 5 nil)
+=> ()
+(concat '(1 2 3) nil)
+=> (1 2 3)
+(concat nil '(4 5 6))
+=> (4 5 6)
+(conj '(1 2 3) 4)
+=> (4 1 2 3)
+(count '(1 2 3 4 5))
+=> 5
+
+vector
+
+[1 2 3]
+=> [1 2 3]
+(type  [1 2 3])
+=> clojure.lang.PersistentVector
+(vector 1 2 3 4 5)
+=> [1 2 3 4 5]
+(get [3 4 5 6 7 8] 3)
+=> 6
+(get [3 4 5 6 7 8] 0)
+=> 3
+(get [3 4 5 6 7 8] 16)
+=> nil
+(get [3 4 5 6 7 8] 16 "default")
+=> "default"
+(get [3 4 5 6 7 8] 1 "default")
+=> 4
+(def my-vector [3 4 5 6 7 8])
+=> #'user/my-vector
+(get my-vector 1)
+=> 4
+(get my-vector 15)
+=> nil
+(my-vector 1)
+=> 4
+(my-vector 14)
+Execution error (IndexOutOfBoundsException) at user/eval2528 (form-init17088452948683706140.clj:1).
+null
+(my-vector 14 :ha)
+Execution error (ArityException) at user/eval2532 (form-init17088452948683706140.clj:1).
+Wrong number of args (2) passed to: clojure.lang.PersistentVector
+(conj my-vector 6)
+=> [3 4 5 6 7 8 6]
+(conj my-vector 6 6 7 8)
+=> [3 4 5 6 7 8 6 6 7 8]
+
+(concat [1 2 3] [ 4 5 6])
+=> (1 2 3 4 5 6)
+(into [1 2 3] [4 5 6])
+=> [1 2 3 4 5 6]
+(count [1 2 3 4 5])
+=> 5
+
+Set
+#{1 2 3}
+=> #{1 3 2}
+(def s #{1 2 3})
+=> #'user/s
+(get s 3)
+=> 3
+(get s 6)
+=> nil
+(s 3)
+=> 3
+(s 12)
+=> nil
+(s 13 :a)
+Execution error (ArityException) at user/eval2586 (form-init17088452948683706140.clj:1).
+Wrong number of args (2) passed to: clojure.lang.PersistentHashSet
+(get s 6 :a)
+=> :a
+(contains? s 6)
+=> false
+(contains? s 1)
+=> true
+(conj s 6)
+=> #{1 6 3 2}
+(disj s 1)
+=> #{3 2}
+
+Map
+
+:a 1
+:b 2    --- {:a 1,:b 2}
+
+{:a 1,:b 2,:c 3}
+=> {:a 1, :b 2, :c 3}
+(def m {:a 1, :b 2, :c 3})
+=> #'user/m
+(get m :b)
+=> 2
+(get m :a)
+=> 1
+(get m :d)
+=> nil
+(get m :d -1)
+=> -1
+(contains? m :d)
+=> false
+(contains? m :b)
+=> true
+(assoc m :z 42)
+=> {:a 1, :b 2, :c 3, :z 42}
+(dissoc m :b)
+=> {:a 1, :c 3}
+(merge m {:z 42 ,:x -1})
+=> {:a 1, :b 2, :c 3, :z 42, :x -1}
