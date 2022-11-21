@@ -1,0 +1,123 @@
+Language Structure
+
+1.if expression
+(if true 1 -1)
+=> 1
+(if false 1 -1)
+=> -1
+(if (even? 2) "even" "odd")
+=> "even"
+(if (even? 3) "even" "odd")
+=> "odd"
+
+(defn my-abs [x]
+  (if (> x 0)
+    x
+    (- x)))
+=> #'user/my-abs
+(my-abs 10)
+=> 10
+(my-abs -10)
+=> 10
+
+2.when,when-not expressions
+(when true 1)
+=> 1
+(when false 1)
+=> nil
+(when-not false -1)
+=> -1
+(when-not true -1)
+=> nil
+(when-not false -1)
+=> -1
+(when-not false -1)
+=> -1
+(when-not false 
+  (print "False") -1)
+False=> -1
+(defn safe-div [x y]
+      (when-not (= y 0)
+                (/ x y)))
+=> #'user/safe-div
+(safe-div 1 2)
+=> 1/2
+(safe-div 1 0)
+=> nil
+
+3.case expression
+(case 10
+  10 :ten
+  20 :twenty)
+=> :ten
+
+(case 20
+  10 :ten
+  20 :twenty)
+=> :twenty
+
+(case 30
+  10 :ten
+  20 :twenty)
+Execution error (IllegalArgumentException) at user/eval1996 (form-init14773830934346169996.clj:1).
+No matching clause: 30
+
+(case 30
+  10 :ten
+  20 :twenty
+  :default-number)
+
+=> :default-number
+(case 30
+  10 :ten
+  20 :twenty
+  nil)
+
+=> nil
+(defn greet [lang]
+  (case lang
+    :spanish "Hola!"
+    :french "Bonjour!"
+    :german "Hallo!"
+    "Hello"))
+=> #'user/greet
+(greet :french)
+=> "Bonjour!"
+(greet :german)
+=> "Hallo!"
+(greet :spanish)
+=> "Hola!"
+(greet :abhjhjhk)
+=> "Hello"
+
+4.Cond expression
+(cond)
+=> nil
+(cond true 1)
+=> 1
+(cond false 1)
+=> nil
+(cond false 1 true 2)
+=> 2
+(cond false 1 false 2)
+=> nil
+(defn grade [percentage]
+  (cond
+    (> percentage 70) :A
+    (> percentage 60) :B
+    (> percentage 50) :C
+    (> percentage 40) :D
+    true :F))
+=> #'user/grade
+(grade 75)
+=> :A
+(grade 65)
+=> :B
+(grade 55)
+=> :C
+(grade 45)
+=> :D
+(grade 35)
+=> :F
+(grade 15)
+=> :F
