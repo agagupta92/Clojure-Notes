@@ -1,0 +1,190 @@
+Exceptions
+
+(throw (Exception. "Test exception!"))
+Execution error at user/eval2166 (form-init8034587791417016712.clj:1).
+Test exception!
+((try
+   (throw (Exception. "Test exception!"))
+   (catch Exception e (println "Handle Exception!"))))
+Handle Exception!
+Execution error (NullPointerException) at user/eval2170 (form-init8034587791417016712.clj:1).
+null
+((try
+   (throw (Exception. "Test exception!"))
+   (catch Exception e (println "Handle Exception!" e))))
+Handle Exception! #error {
+ :cause Test exception!
+ :via
+ [{:type java.lang.Exception
+   :message Test exception!
+   :at [user$eval2176$fn__2177 invoke form-init8034587791417016712.clj 1]}]
+ :trace
+ [[user$eval2176$fn__2177 invoke form-init8034587791417016712.clj 1]
+  [user$eval2176 invokeStatic form-init8034587791417016712.clj 1]
+  [user$eval2176 invoke form-init8034587791417016712.clj 1]
+  [clojure.lang.Compiler eval Compiler.java 7176]
+  [clojure.lang.Compiler eval Compiler.java 7131]
+  [clojure.core$eval invokeStatic core.clj 3214]
+  [clojure.core$eval invoke core.clj 3210]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__965$fn__966 invoke interruptible_eval.clj 87]
+  [clojure.lang.AFn applyToHelper AFn.java 152]
+  [clojure.lang.AFn applyTo AFn.java 144]
+  [clojure.core$apply invokeStatic core.clj 665]
+  [clojure.core$with_bindings_STAR_ invokeStatic core.clj 1973]
+  [clojure.core$with_bindings_STAR_ doInvoke core.clj 1973]
+  [clojure.lang.RestFn invoke RestFn.java 425]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__965 invoke interruptible_eval.clj 87]
+  [clojure.main$repl$read_eval_print__9068$fn__9071 invoke main.clj 414]
+  [clojure.main$repl$read_eval_print__9068 invoke main.clj 414]
+  [clojure.main$repl$fn__9077 invoke main.clj 435]
+  [clojure.main$repl invokeStatic main.clj 435]
+  [clojure.main$repl doInvoke main.clj 345]
+  [clojure.lang.RestFn invoke RestFn.java 1523]
+  [nrepl.middleware.interruptible_eval$evaluate invokeStatic interruptible_eval.clj 84]
+  [nrepl.middleware.interruptible_eval$evaluate invoke interruptible_eval.clj 56]
+  [nrepl.middleware.interruptible_eval$interruptible_eval$fn__996$fn__1000 invoke interruptible_eval.clj 152]
+  [clojure.lang.AFn run AFn.java 22]
+  [nrepl.middleware.session$session_exec$main_loop__1063$fn__1067 invoke session.clj 202]
+  [nrepl.middleware.session$session_exec$main_loop__1063 invoke session.clj 201]
+  [clojure.lang.AFn run AFn.java 22]
+  [java.lang.Thread run Thread.java 829]]}
+Execution error (NullPointerException) at user/eval2176 (form-init8034587791417016712.clj:1).
+null
+((try
+   (/ 1 0)
+   (catch Exception e (println "Handle Exception!" e))))
+Handle Exception! #error {
+ :cause Divide by zero
+ :via
+ [{:type java.lang.ArithmeticException
+   :message Divide by zero
+   :at [clojure.lang.Numbers divide Numbers.java 188]}]
+ :trace
+ [[clojure.lang.Numbers divide Numbers.java 188]
+  [clojure.lang.Numbers divide Numbers.java 3901]
+  [user$eval2182$fn__2183 invoke form-init8034587791417016712.clj 2]
+  [user$eval2182 invokeStatic form-init8034587791417016712.clj 1]
+  [user$eval2182 invoke form-init8034587791417016712.clj 1]
+  [clojure.lang.Compiler eval Compiler.java 7176]
+  [clojure.lang.Compiler eval Compiler.java 7131]
+  [clojure.core$eval invokeStatic core.clj 3214]
+  [clojure.core$eval invoke core.clj 3210]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__965$fn__966 invoke interruptible_eval.clj 87]
+  [clojure.lang.AFn applyToHelper AFn.java 152]
+  [clojure.lang.AFn applyTo AFn.java 144]
+  [clojure.core$apply invokeStatic core.clj 665]
+  [clojure.core$with_bindings_STAR_ invokeStatic core.clj 1973]
+  [clojure.core$with_bindings_STAR_ doInvoke core.clj 1973]
+  [clojure.lang.RestFn invoke RestFn.java 425]
+  [nrepl.middleware.interruptible_eval$evaluate$fn__965 invoke interruptible_eval.clj 87]
+  [clojure.main$repl$read_eval_print__9068$fn__9071 invoke main.clj 414]
+  [clojure.main$repl$read_eval_print__9068 invoke main.clj 414]
+  [clojure.main$repl$fn__9077 invoke main.clj 435]
+  [clojure.main$repl invokeStatic main.clj 435]
+  [clojure.main$repl doInvoke main.clj 345]
+  [clojure.lang.RestFn invoke RestFn.java 1523]
+  [nrepl.middleware.interruptible_eval$evaluate invokeStatic interruptible_eval.clj 84]
+  [nrepl.middleware.interruptible_eval$evaluate invoke interruptible_eval.clj 56]
+  [nrepl.middleware.interruptible_eval$interruptible_eval$fn__996$fn__1000 invoke interruptible_eval.clj 152]
+  [clojure.lang.AFn run AFn.java 22]
+  [nrepl.middleware.session$session_exec$main_loop__1063$fn__1067 invoke session.clj 202]
+  [nrepl.middleware.session$session_exec$main_loop__1063 invoke session.clj 201]
+  [clojure.lang.AFn run AFn.java 22]
+  [java.lang.Thread run Thread.java 829]]}
+Execution error (NullPointerException) at user/eval2182 (form-init8034587791417016712.clj:1).
+null
+((try
+   (/ 1 0)
+   (catch Exception e (println "Handle Exception!"))))
+Handle Exception!
+Execution error (NullPointerException) at user/eval2188 (form-init8034587791417016712.clj:1).
+null
+((try
+   (/ 1 0)
+   (catch Exception _ (println "Handle Exception!"))))
+Handle Exception!
+Execution error (NullPointerException) at user/eval2194 (form-init8034587791417016712.clj:1).
+null
+(try
+  (/ 1 0)
+  (catch ArithmeticException 
+         (println "Handle Arithmetic Exception")
+    :infinity))
+Syntax error (IllegalArgumentException) compiling try at (form-init8034587791417016712.clj:1:1).
+Bad binding form, expected symbol, got: (println "Handle Arithmetic Exception")
+(try
+  (/ 1 0)
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity))
+Handle Arithmetic Exception
+=> :infinity
+(try
+  (/ 1 0)
+  (catch ArithmeticException _
+    (println "Handle Arithmetic Exception")))
+Handle Arithmetic Exception
+=> nil
+(try
+  (throw (Exception. "General exception"))
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity))
+Execution error at user/eval2211 (form-init8034587791417016712.clj:1).
+General exception
+(try
+  (throw (Exception. "General exception"))
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity)
+  (catch Exception _
+    (println "Handle Exception!")
+    nil))
+Handle Exception!
+=> nil
+(try
+  (/ 1 0)
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity)
+  (catch Exception _
+    (println "Handle Exception!")
+    nil))
+Handle Arithmetic Exception
+=> :infinity
+(try
+  (/ 1 0)
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity)
+  (catch Exception _
+    (println "Handle Exception!")
+    nil)
+  (finally (println "Finally code")))
+Handle Arithmetic Exception
+Finally code
+=> :infinity
+(try
+  (throw (Exception. "test"))
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity)
+  (catch Exception _
+    (println "Handle Exception!")
+    nil)
+  (finally (println "Finally code")))
+Handle Exception!
+Finally code
+=> nil
+
+(try
+  (/ 10 2)
+  (catch ArithmeticException _ 
+         (println "Handle Arithmetic Exception")
+    :infinity)
+  (catch Exception _
+    (println "Handle Exception!")
+    nil)
+  (finally (println "Finally code")))
+Finally code
+=> 5
